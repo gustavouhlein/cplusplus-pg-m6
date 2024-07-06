@@ -175,10 +175,18 @@ void mouse(double& mx, double& my) {
         return;
     }
 
+    // Verificar se a regra de movimento é do tipo 0, se for, impedir a seleção
+    if (movementRules[r][c] == 0) {
+        //cout << "Tile com regra de movimento 0 não pode ser selecionado: " << c << ", " << r << endl;
+        return;
+    }
+
     // cout << "SELECIONADO c=" << c << "," << r << endl;
     cx = c; cy = r;
     tileSelected = true; // Tile foi selecionado
 }
+
+
 
 // Função para lidar com as teclas pressionadas
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
